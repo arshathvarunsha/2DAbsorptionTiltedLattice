@@ -1,0 +1,6 @@
+Model                = EP1D
+Method               = splitop_tilted
+
+
+System               = slurm  # slurm/htcondor/pc
+Cpus                 = 1 
