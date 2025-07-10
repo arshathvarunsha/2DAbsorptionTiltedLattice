@@ -10,7 +10,7 @@ import shutil
 import re
 script_dir = os.path.dirname(os.path.abspath(__file__))
 # Find all __init__.py files in the directory and its subdirectories
-init_files = glob.glob(os.path.join(script_dir, '**/__init__.py'), recursive=True)
+init_files = glob.glob(os.path.join(script_dir, '**/serial.py'), recursive=True)
 # List all found __init__.py files
 # font
 
@@ -22,7 +22,7 @@ for file in init_files:
      os.chdir(dir_path)
      print(f'Running avg.py in {os.system("pwd")}')
      #os.system('python3 __init__.py')
-     os.system('mv output/splitop_tilted-EP1D-0.txt ./splitop_tilted-EP1D.txt')
+     os.system('mv output/splitop_tilted-EP1D.txt ./splitop_tilted-EP1D.txt')
 
 ##Now need to extract Iw from the files
 # Get the directory where this script is located
@@ -104,10 +104,10 @@ plt.ylabel('$k_y$ (1/a × $10^3$)')
 plt.clim(0, max(Full4x.flatten()) * 1.2)  # Set color limits to enhance visibility
 #plt.title('2D Absorbtion Spectra For Tilted Multilayered System')
 plt.tight_layout()
-plt.savefig(os.path.join(base_path, "2D_Abs_Spec_θ = " + str(θ) + ".pdf"))
+plt.savefig(os.path.join(base_path, "2D_Abs_Spec_θ=" + str(θ) + ".pdf"))
 plt.close()
 # Save the I_matrix to a text file
-np.savetxt(os.path.join(base_path, "2D_Abs_Spec_θ = " + str(θ) + ".txt"), I_matrix, fmt='%.6f', delimiter='\t',
+np.savetxt(os.path.join(base_path, "2D_Abs_Spec_θ=" + str(θ) + ".txt"), I_matrix, fmt='%.6f', delimiter='\t',
            header='I matrix for ω = {:.2f} eV'.format(ω[0] * 27.2114))
 # Need to plot 1D absorbtion spectra for Ky = 0 and Kx = 0
 #Ky = 0
@@ -141,21 +141,22 @@ for i, ifile in enumerate(initk0):
         ω, I = Iw2(t, ct)
         I2Dky[:,i] = I
         print(f"Processing {ifile} with shape {I.shape}")
-file_name = "1D_Abs_Spect_ky = 0_θ =" + str(θ)  + ".txt"
+file_name = "1D_Abs_Spect_ky=0_θ=" + str(θ)  + ".txt"
 
 np.savetxt(file_name, I2Dky)   
 M2 = np.zeros((I2Dky[::-1,:].shape[0], I2Dky[::-1,:].shape[1]*2))
 M2[:, :I2Dky[::-1,:].shape[1]] = I2Dky[::-1,::-1]
 M2[:, I2Dky[::-1,:].shape[1]:] = I2Dky[::-1,:]
 plt.figure(figsize=(5, 5/ 1.034))
-plt.imshow(M2, aspect='auto' , extent=[ -1.0, 1.0, 0.0, 5.0],cmap=cmap, interpolation='gaussian')
+plt.imshow(M2, aspect='auto' , extent=[ -maxky, maxky, 0.0, 5.0],cmap=cmap, interpolation='gaussian')
 plt.clim(0, 250)
 plt.tight_layout()
 plt.xlabel('$k_x$ (1/a × $10^3$)')
 plt.ylabel('Energy (eV)')
 plt.ylim(2.0, 4.0)
+plt.xticks([])
 plt.yticks(np.linspace(2.0, 4.0, 5))
-plt.savefig("1D_Abs_Spect_ky = 0_θ =" + str(θ)  + ".pdf", bbox_inches='tight')
+plt.savefig("1D_Abs_Spect_ky=0_θ=" + str(θ)  + ".pdf", bbox_inches='tight')
 plt.close()
 # For Kx = 0 
 initkx0 = glob.glob(os.path.join(base_path, "initk_*"))
@@ -173,19 +174,19 @@ for i, c in enumerate(initkx0):
         ω, I = Iw2(t, ct)
         I2Dkx[:,i] = I
         print(f"Processing {i} with shape {I.shape}")
-file_name = '1D_Abs_Spect_kx = 0_θ =' + str(θ)  + '.txt'
+file_name = '1D_Abs_Spect_kx=0_θ='+ str(θ)  + '.txt'
 np.savetxt(file_name, I2Dkx)
 
 M2 = np.zeros((I2Dkx[::-1,:].shape[0], I2Dkx[::-1,:].shape[1]*2))
 M2[:, :I2Dkx[::-1,:].shape[1]] = I2Dkx[::-1,::-1]
 M2[:, I2Dkx[::-1,:].shape[1]:] = I2Dkx[::-1,:]
 plt.figure(figsize=(5, 5/ 1.034))
-plt.imshow(M2, aspect='auto' , extent=[ -1.0, 1.0, 0.0, 5.0],cmap=cmap, interpolation='gaussian')
+plt.imshow(M2, aspect='auto' , extent=[ -maxkx, maxkx, 0.0, 5.0],cmap=cmap, interpolation='gaussian')
 plt.clim(0, 250)
 plt.xlabel('$k_x$ (1/a × $10^3$)')
 plt.ylim(2.0, 4.0)
 plt.tight_layout()
 plt.yticks(np.linspace(2.0, 4.0, 5))
 plt.ylabel('Energy (eV)')
-plt.savefig('1D_Abs_Spect_kx = 0_θ =' + str(θ)  + '.pdf', bbox_inches='tight')   
+plt.savefig('1D_Abs_Spect_kx=0_θ=' + str(θ)  + '.pdf', bbox_inches='tight')   
 plt.close()

@@ -67,7 +67,6 @@ def Uc(Ψ, param, dt):
     Ψph =  Ψph.flatten()
     Ep  =     eta
     Em  = -   eta
-    print("Ep :", Ep, "Em :", Em)
     Ψp =  (np.exp(-1j * Ep * dt) * (1/np.sqrt(2)*Ψex + 1/np.sqrt(2)*Ψph))
     Ψm =  (np.exp(-1j * Em * dt) * (1/np.sqrt(2)*Ψex - 1/np.sqrt(2)*Ψph))
     Ψex_ = 1/np.sqrt(2) * (Ψp + Ψm)

@@ -18,7 +18,7 @@ cd $SLURM_SUBMIT_DIR
 OMEGA="3"
 
 # Path to the Python script
-SCRIPT="plotting_2d.py"
+SCRIPT="2D_plotting.py"
 
 while true; do
     echo "[$(date)] Running the Python script with omega = $OMEGA"

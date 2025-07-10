@@ -15,10 +15,10 @@ import os
 import sys
 
 import numpy as np
-
-sys.path.append(os.popen("pwd").read().replace("\n","")+"/Method")
+mainfold = os.popen("pwd").read().replace("\n","")
+# go back two directories to find Method and Model
+sys.path.append(os.path.join(mainfold, "../../Method"))
 sys.path.append(os.popen("pwd").read().replace("\n","")+"/Model")
-
 
 #-------------------------
 try:
@@ -126,3 +126,4 @@ np.savetxt(PiiFilename, np.c_[rho_sum.real, rho_sum.imag])
 t2 = time.time()-t1
 print(f"Total Time: {t2}")
 print(f"Time per trajectory: {t2/NTraj}")
+ 
