@@ -76,7 +76,7 @@ def Uc(Ψ, param, dt):
     δΨc = Ψex_nl.flatten()
     Ψf = np.zeros(Nx*L+Np)  + 0j
     Ψf[0:Nx*L] = Ψ[0:Nx*L] * 1.0 + δΨc
-    Ψph_ = np.fft.ifft(Ψph_ * 1.0, norm='ortho')   
+    Ψph_ = np.fft.fft(Ψph_ * 1.0, norm='ortho')   
     Ψf[Nx*L:] = Ψph_
     Ψf = Ψf.flatten()
     return Ψf
