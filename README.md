@@ -4,7 +4,9 @@ This repository provides a framework for computing and plotting 2D absorption sp
 🛠️ Step 1: Configure Simulation Parameters
 Before running the job, edit the following file to set the model parameters:
 Model/EP1D.py
-Update the variables as needed to match your simulation setup.
+Update the variables as needed to match your simulation setup. 
+Trial
+For testing the parameters are set to a non-tilted system of 8000 excitons.
 
 🚀 Step 2: Run the Simulation
 To generate raw data for the absorption spectra, submit the main job script. If you're using SLURM:
