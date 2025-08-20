@@ -1,8 +1,0 @@
-3:cd initk_0/init_8005; python serial.py input.txt output; cd ../../
-13:cd initk_0/init_8025; python serial.py input.txt output; cd ../../
-23:cd initk_0/init_8045; python serial.py input.txt output; cd ../../
-33:cd initk_0/init_8065; python serial.py input.txt output; cd ../../
-43:cd initk_2/init_8005; python serial.py input.txt output; cd ../../
-53:cd initk_2/init_8025; python serial.py input.txt output; cd ../../
-63:cd initk_2/init_8045; python serial.py input.txt output; cd ../../
-73:cd initk_2/init_8065; python serial.py input.txt output; cd ../../

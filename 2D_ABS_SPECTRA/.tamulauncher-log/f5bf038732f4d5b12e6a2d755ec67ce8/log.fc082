@@ -1,8 +1,0 @@
-8 : exit code 0: elapsed time = 23.000000s # cd initk_0/init_8015; python serial.py input.txt output; cd ../../
-18 : exit code 0: elapsed time = 13.000000s # cd initk_0/init_8035; python serial.py input.txt output; cd ../../
-28 : exit code 0: elapsed time = 13.000000s # cd initk_0/init_8055; python serial.py input.txt output; cd ../../
-38 : exit code 0: elapsed time = 13.000000s # cd initk_0/init_8075; python serial.py input.txt output; cd ../../
-48 : exit code 0: elapsed time = 13.000000s # cd initk_2/init_8015; python serial.py input.txt output; cd ../../
-58 : exit code 0: elapsed time = 13.000000s # cd initk_2/init_8035; python serial.py input.txt output; cd ../../
-68 : exit code 0: elapsed time = 13.000000s # cd initk_2/init_8055; python serial.py input.txt output; cd ../../
-78 : exit code 0: elapsed time = 13.000000s # cd initk_2/init_8075; python serial.py input.txt output; cd ../../
