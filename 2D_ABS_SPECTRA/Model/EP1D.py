@@ -49,7 +49,7 @@ class parameters():
     ###################################################
     X_n = Rn * a # X position of sites
     X_nm = np.vstack([X_n] * Nlayer)
-    δk = 3
+    δk = 0
     θtilt = np.arcsin(2*Lz*δk/(mz*Nsite*a))
     print("theta",θtilt )
     b = a * np.sin(θtilt) # distance between layers
