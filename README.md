@@ -1,59 +1,48 @@
-##  2D Absorption Spectra Workflow
+##  Tilted Material in an Optical Cavity: Light-Matter Moiré Effect and Coherent Frequency Conversion
 
-This repository provides a framework for computing and plotting 2D absorption spectra using a parameterized model.  
+Overview
 
----
 
-## 🛠️ Step 1: Configure Simulation Parameters
+This repository contains the simulation framework and analysis tools for studying the Light–Matter Moiré Effect (LMME) that emerges when a tilted 2D material is embedded inside a planar optical cavity.
 
-Before running the job, edit the following file to set the model parameters:  
-Update the variables as needed to match your simulation setup.  
+Unlike conventional moiré materials formed by twisting layered crystals, here the moiré-like modulation arises purely from geometric tilt, leading to displaced polariton dispersions, emergent flat bands, and robust coherent frequency conversion.
 
-**Trial:**  
-For testing, the parameters are set to a non-tilted system of 8000 excitons.  
+![image](https://github.com/user-attachments/files/21908472/Fig0.pdf)
 
----
+ *Comparison of twisted graphene and tilted material in an optical cavity} (a) Illustration of a graphene bilayer offset by a twist angle. (b) Illustration of a tilted material within a Fabry-Perot cavity coupling to cavity radiation. (c) Schematic band structure of a graphene bilayer without (left) and with (right) a twist of θ. (d) Schematic band structure of a tilted material without (left) and with (right) a tilt of  θ.*
 
-## 🚀 Step 2: Run the Simulation
+## Theoretical Frame Work and General Work Flow
+The system is modeled by a light–matter Hamiltonian that captures the coupling between cavity photons and excitons in a tilted 2D lattice. The tilt introduces a spatial modulation in the exciton–photon coupling, giving rise to the LMME.
+The Hamiltonian for a fixed  momentum vector component along $\vec{y}, i.e, $$k_y$ is expressed as:
+<img width="901" height="176" alt="image" src="https://github.com/user-attachments/assets/292f4e49-b9a6-4465-8c2d-8aafbae3f0a0" />
 
-This code is written to run in a parallel manner using the **TAMULauncher** cluster system.  
+This decomposition allows us to perform independent 2D simulations for each 
+$k_y$. The full 3D dynamics of the system can then be reconstructed by combining the results across all the $k_y$ values.This modular approach simplifies computations and allows efficient parallelization.
+    
+## Repository Structure and Usage
+(1) 2D_ABS_SPECTRA/        --------------------------------------- # Scripts for absorption spectra calculations
 
-- For detailed information, check the [HPRC TAMU TAMULauncher guide](https://hprc.tamu.edu/kb/Software/tamulauncher/).  
-- For users outside TAMU, the process can be replaced with **SLURM array job submission**, which is equivalent. See [reference](https://stackoverflow.com/questions/71969482/running-parallel-jobs-in-slurm).  
+(2) COHERENT_FREQ_CONV/    ---------------------------------------# Simulations of coherent frequency conversion
 
-### If you are using TAMULauncher
-As an initial step before running jobs, in the CWD run:  
-```bash tamulauncher --remove-logs commands.in ```
-This will clear the cache memory associated with previous simulations. Otherwise, the new job will not run.  
+(3) FIGURES/               ---------------------------------------# Scripts & data for reproducing paper figures
 
-To generate raw data for the absorption spectra, submit the main job script. If you are using SLURM:  
-
-```bash sh start.sh ```
-(A) This script will:
-(1) Create subfolders for each $k_y$ value.
-(2) Generate the commands.in file, which describes the parallel jobs.
-(3) Launch simulations over different ($k_x$, $k_y$) values.
-(B) Submit supporting scripts:
-(1) tamulauncher.sh → Submits all parallel runs.
-(2) clean.sh → Cleans temporary files, prevents exceeding file limits, and plots data once simulations complete.
-    Allows on-the-fly analysis while jobs are running.
-The above steps will produce the raw absorption spectra data and intermediate output files
-Note: How Modify Energy for 2D-cut
-Open clean.sh and set your desired energy range for plotting.
-This can be adjusted at any time, even after the simulations finish.
-
-🧠 Additional Notes
-You can modify the logic and plotting styles by editing the following files:
-Method/
-Model/
-Plotting.py
-Each script is well-commented to facilitate customization and understanding.
-You will able to reproduce this result if you run this code with the test parameters.
-![image](https://github.com/user-attachments/assets/10cee291-8220-4b73-852f-1f859a33f45e)
-
+### References
+A. Manjalingal, S. R. Koshkaki, L. Blackham, A. Mandal,
+Tilted Material in an Optical Cavity: Light–Matter Moiré Effect and Coherent Frequency Conversion (2025), [arXiv:2508.11237](https://arxiv.org/abs/2508.11237).
 ### 📬 Questions or Contributions
 For any issues, suggestions, or contributions, feel free to open an issue or submit a pull request.
 contact: 
-arkajit@tamu.edu
-avmanjalingal@tamu.edu
-Happy Simulating!
+
+
+✉️ arkajit@tamu.edu
+
+✉️ avmanjalingal@tamu.edu
+
+✉️ rahmanian@tamu.edu
+
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/user-attachments/assets/407ab9e2-d7ab-427e-a645-9e1afe513b56" width="300" />
+  <img src="https://github.com/user-attachments/assets/6d026d1f-5a9b-4890-8874-7485d2ead16a" width="300" />
+</div>
+
