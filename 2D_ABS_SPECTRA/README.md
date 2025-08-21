@@ -7,7 +7,8 @@ This repository provides a framework for computing and plotting 2D absorption sp
 ## 🛠️ Step 1: Configure Simulation Parameters
 
 Before running the job, edit the following file to set the model parameters:  
-Update the variables as needed to match your simulation setup.  
+```Model/EP1D.py ```
+,update the variables as needed to match your simulation setup.  
 
 **Trial:**  
 For testing, the parameters are set to a non-tilted system of 8000 excitons.  
@@ -29,26 +30,52 @@ This will clear the cache memory associated with previous simulations. Otherwise
 To generate raw data for the absorption spectra, submit the main job script. If you are using SLURM:  
 
 ```bash sh start.sh ```
-(A) This script will:
+### (A) This script will:
+
+
 (1) Create subfolders for each $k_y$ value.
-(2) Generate the commands.in file, which describes the parallel jobs.
+
+
+(2) Generate the commands.in file, which describes jobs to run parellely.
+
+
 (3) Launch simulations over different ($k_x$, $k_y$) values.
-(B) Submit supporting scripts:
+
+
+### (B) Submit supporting scripts:
+
 (1) tamulauncher.sh → Submits all parallel runs.
+
+
 (2) clean.sh → Cleans temporary files, prevents exceeding file limits, and plots data once simulations complete.
     Allows on-the-fly analysis while jobs are running.
-The above steps will produce the raw absorption spectra data and intermediate output files
-Note: How Modify Energy for 2D-cut
-Open clean.sh and set your desired energy range for plotting.
-This can be adjusted at any time, even after the simulations finish.
 
-🧠 Additional Notes
+    
+The above steps will produce the raw absorption spectra data and intermediate output files.
+
+
+## Note: How Modify Energy for 2D-cut
+
+
+Open clean.sh and set your desired energy range for plotting by changing *E = *.
+This can be adjusted at any time, even after the simulations are finished.
+
+## 🧠 Additional Notes
 You can modify the logic and plotting styles by editing the following files:
+
 Method/
+
+
 Model/
+
+
 Plotting.py
+
+
 Each script is well-commented to facilitate customization and understanding.
-You will able to reproduce this result if you run this code with the test parameters.
+
+
+You will able to reproduce this result if you run this code with the test parameters given in the model, this is for a system with out any tilt.
 ![image](https://github.com/user-attachments/assets/10cee291-8220-4b73-852f-1f859a33f45e)
 
 
