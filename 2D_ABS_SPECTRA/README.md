@@ -75,7 +75,9 @@ Plotting.py
 Each script is well-commented to facilitate customization and understanding.
 
 
-You will able to reproduce this result if you run this code with the test parameters given in the model, this is for a system with out any tilt.
+You will able to reproduce this result if you run this code with the test parameters given in the model, this is the 2D absorbtion spectra for a system with out any tilt at E= 3 eV.
+
+
 ![image](https://github.com/user-attachments/assets/10cee291-8220-4b73-852f-1f859a33f45e)
 
 
