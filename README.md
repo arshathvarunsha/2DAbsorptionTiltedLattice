@@ -11,7 +11,14 @@ Unlike conventional moiré materials formed by twisting layered crystals, here t
 
  *Comparison of twisted graphene and tilted material in an optical cavity} (a) Illustration of a graphene bilayer offset by a twist angle. (b) Illustration of a tilted material within a Fabry-Perot cavity coupling to cavity radiation. (c) Schematic band structure of a graphene bilayer without (left) and with (right) a twist of θ. (d) Schematic band structure of a tilted material without (left) and with (right) a tilt of  θ.*
 
+## Theoretical Frame Work and General Work Flow
+The system is modeled by a light–matter Hamiltonian that captures the coupling between cavity photons and excitons in a tilted 2D lattice. The tilt introduces a spatial modulation in the exciton–photon coupling, giving rise to the LMME.
+The Hamiltonian for a fixed  momentum vector component along $\vec{y}, i.e, $$k_y$ is expressed as:
+<img width="901" height="176" alt="image" src="https://github.com/user-attachments/assets/292f4e49-b9a6-4465-8c2d-8aafbae3f0a0" />
 
+This decomposition allows us to perform independent 2D simulations for each 
+$k_y$. The full 3D dynamics of the system can then be reconstructed by combining the results across all the $k_y$ values.This modular approach simplifies computations and allows efficient parallelization.
+    
 ## Repository Structure and Usage
 (1) 2D_ABS_SPECTRA/        --------------------------------------- # Scripts for absorption spectra calculations
 
@@ -30,6 +37,8 @@ contact:
 ✉️ arkajit@tamu.edu
 
 ✉️ avmanjalingal@tamu.edu
+
+✉️ rahmanian@tamu.edu
 
 
 <div style="display: flex; justify-content: space-between;">
