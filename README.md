@@ -6,7 +6,10 @@ Overview
 This repository contains the simulation framework and analysis tools for studying the Light–Matter Moiré Effect (LMME) that emerges when a tilted 2D material is embedded inside a planar optical cavity.
 
 Unlike conventional moiré materials formed by twisting layered crystals, here the moiré-like modulation arises purely from geometric tilt, leading to displaced polariton dispersions, emergent flat bands, and robust coherent frequency conversion.
-![image](https://github.com/user-attachments/files/21908472/Fig0.pdf) *Comparison of twisted graphene and tilted material in an optical cavity} (a) Illustration of a graphene bilayer offset by a twist angle. (b) Illustration of a tilted material within a Fabry-Perot cavity coupling to cavity radiation. (c) Schematic band structure of a graphene bilayer without (left) and with (right) a twist of θ. (d) Schematic band structure of a tilted material without (left) and with (right) a tilt of  θ.*
+
+![image](https://github.com/user-attachments/files/21908472/Fig0.pdf)
+
+ *Comparison of twisted graphene and tilted material in an optical cavity} (a) Illustration of a graphene bilayer offset by a twist angle. (b) Illustration of a tilted material within a Fabry-Perot cavity coupling to cavity radiation. (c) Schematic band structure of a graphene bilayer without (left) and with (right) a twist of θ. (d) Schematic band structure of a tilted material without (left) and with (right) a tilt of  θ.*
 
 
 ## Repository Structure and Usage
