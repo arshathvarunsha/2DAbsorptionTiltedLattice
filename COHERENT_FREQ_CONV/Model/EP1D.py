@@ -19,13 +19,13 @@ class parameters():
     dtN = 25
     dtE = dtN/25
     NSteps =  300 #int(0.1 * ps / dtN) # 0.1 ps
-    NTraj = 10 #number of initial state sampling
+    NTraj = 1 #number of initial state sampling
     M = 1.0 #nuclear mass
     nskip = 1
     τ = 0*4 * 100/cm # Hopping integral contsant for cleane system
     β = 1052.8# a.u. is 300K is 1052.8
     ω = 360/cm #(K/ms) ** 0.5 # Phonon frequency
-    γ = 1* 1.1 *((ω)**1.5) # 1000/(cm * Å)/ms**0.5
+    γ = 0* 1.1 *((ω)**1.5) # 1000/(cm * Å)/ms**0.5
     Γ = 0 # cavity loss
     a = 12 * Å
     az = 40 * Å 

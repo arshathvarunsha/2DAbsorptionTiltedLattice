@@ -38,25 +38,24 @@ def Uγ(Ψ, R, param, dt):
     return Ψ
 
 def Uk(Ψ, param, dt):
+    # Matter
     matter = param.Nsite * param.Nlayer
-    dim = param.Nsite * (param.Nlayer + 1)
     Ψ_layers = Ψ[:matter] * 1.0
     Ψ_layers = Ψ_layers.reshape(param.Nlayer, param.Nsite)
     Ψfft = np.fft.fft(Ψ_layers, axis=1, norm='ortho') 
-    Ψ[:matter] = Ψfft.flatten()
+    Ψm = Ψfft.flatten()
     k = np.fft.fftfreq(param.Nsite, d= 1/param.Nsite)
     Ek = (-2) * param.τ * np.cos((2 * np.pi * k)/param.Nsite)
     Ek = np.tile(Ek, param.Nlayer)
-    Ψ[:matter] *= np.exp(-1j * Ek * dt)
+    ψ_m = Ψm * np.exp(-1j * Ek * dt)
     Ψ[matter:] *= np.exp(-1j * param.ωk * dt)
     #for i in range(len(Ψ[matter:])):   
-    ψ_m = Ψ[:matter] *1.0
-    ψ_pi =Ψ[matter:]*1.0
+    ψ_pi = Ψ[matter:] *1.0
     Ψnl = np.reshape(ψ_m, (param.Nlayer, param.Nsite))
     Ψr  = np.fft.ifft(Ψnl, norm='ortho', axis=1)
     Ψr = Ψr.flatten()
-    ψ_pi = np.fft.ifft(ψ_pi, norm='ortho')
-    Ψr = np.concatenate((Ψr, ψ_pi))
+    ψ_pi = np.fft.ifft(ψ_pi * 1.0, norm='ortho')
+    Ψr = np.concatenate((Ψr * 1.0, ψ_pi * 1.0))
     Ψr = Ψr.flatten()
     return Ψr
 
@@ -73,18 +72,21 @@ def Uc(Ψ, param, dt):
     Ψex =  Ψex.flatten()
     Ψph =  Ψ[param.Nsite*param.Nlayer:]  * 1.0
     Ψph =  Ψph.flatten()
+
     Ep  =     eta
     Em  = -   eta
     Ψp =  (np.exp(-1j * Ep * dt) * (1/np.sqrt(2)*Ψex + 1/np.sqrt(2)*Ψph))
     Ψm =  (np.exp(-1j * Em * dt) * (1/np.sqrt(2)*Ψex - 1/np.sqrt(2)*Ψph))
     Ψex_ = 1/np.sqrt(2) * (Ψp + Ψm)
     Ψph_ = 1/np.sqrt(2) * (Ψp - Ψm)
+
+
     δΨex = Ψex_ - Ψex
     Ψex_nl = np.einsum("nl,n->nl", Srs, δΨex)
     δΨc = Ψex_nl.flatten()
     Ψf = np.zeros(Nx*L+Np)  + 0j
     Ψf[0:Nx*L] = Ψ[0:Nx*L] * 1.0 + δΨc
-    Ψph_ = np.fft.ifft(Ψph_ * 1.0, norm='ortho')   
+    Ψph_ = np.fft.fft(Ψph_ * 1.0, norm='ortho')   
     Ψf[Nx*L:] = Ψph_
     Ψf = Ψf.flatten()
     return Ψf

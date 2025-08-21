@@ -120,8 +120,8 @@ rho_sum2[:] = rho_sum2[:]/ NTraj
 rho_sumδ[:] = rho_sumδ[:]/ NTraj
 rho_sumδ2[:] = rho_sumδ2[:]/ NTraj
 plt.figure(figsize=(4, 2))
-plt.plot((rho_sum1.real ), label='c_1', c = "#ff6b6b")
-plt.plot((rho_sum2.real), label='c_2', c = "#54a0ff")
+plt.plot((rho_sum1.real ), label='c_1', c = "#ee5253", lw = 5)
+plt.plot((rho_sum2.real), label='c_2', c = "#ff9f43", lw = 3)
 Xmin = 0
 Xmax = 1000
 plt.xlim(Xmin, Xmax)
@@ -136,8 +136,8 @@ plt.savefig(f'input_{par.θr}_{par.initKstate}_{par.γ}.pdf', bbox_inches='tight
 plt.close()
 #####
 plt.figure(figsize=(4, 2))
-plt.plot((rho_sumδ.real ), label='c_δ', c = "#1dd1a1")
-plt.plot((rho_sumδ2.real ), label='c_δ2', c = "#feca57")
+plt.plot((rho_sumδ.real ), label='c_δ', c = "#00d2d3", lw = 5)
+plt.plot((rho_sumδ2.real ), label='c_δ2', c = "#2e86de", lw = 3)
 plt.xlim(Xmin, Xmax)
 plt.ylim(-0.2,0.2)
 plt.tight_layout()
