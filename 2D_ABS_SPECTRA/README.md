@@ -51,9 +51,4 @@ Each script is well-commented to facilitate customization and understanding.
 You will able to reproduce this result if you run this code with the test parameters.
 ![image](https://github.com/user-attachments/assets/10cee291-8220-4b73-852f-1f859a33f45e)
 
-### 📬 Questions or Contributions
-For any issues, suggestions, or contributions, feel free to open an issue or submit a pull request.
-contact: 
-arkajit@tamu.edu
-avmanjalingal@tamu.edu
-Happy Simulating!
+
