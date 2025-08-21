@@ -20,11 +20,11 @@ This decomposition allows us to perform independent 2D simulations for each
 $k_y$. The full 3D dynamics of the system can then be reconstructed by combining the results across all the $k_y$ values.This modular approach simplifies computations and allows efficient parallelization.
     
 ## Repository Structure and Usage
-(1) 2D_ABS_SPECTRA/        --------------------------------------- # Scripts for absorption spectra calculations
+(1) 2D_ABS_SPECTRA/                                              - *Scripts for absorption spectra calculations*
 
-(2) COHERENT_FREQ_CONV/    ---------------------------------------# Simulations of coherent frequency conversion
+(2) COHERENT_FREQ_CONV/     - *Simulations of coherent frequency conversion*
 
-(3) FIGURES/               ---------------------------------------# Scripts & data for reproducing paper figures
+(3) FIGURES/               - *Scripts & data for reproducing paper figures*
 
 ### References
 A. Manjalingal, S. R. Koshkaki, L. Blackham, A. Mandal,
