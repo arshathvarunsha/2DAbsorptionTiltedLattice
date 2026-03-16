@@ -1,4 +1,4 @@
-##  Tilted Material in an Optical Cavity: Light-Matter Moiré Effect and Coherent Frequency Conversion
+###  Tilted Material in an Optical Cavity: Light-Matter Moiré Effect and Coherent Frequency Conversion
 
 Overview
 
